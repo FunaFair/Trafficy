@@ -1,0 +1,18 @@
+{
+    "files.exclude": {
+        "**/windows": true,
+        "**/android":true,
+        "trafficy.iml":true,
+        "**/ios":true,
+        "**/linux":true,
+        ".metadata":true,
+        ".gitignore":true,
+        "analysis_options.yaml":true,
+        "pubspec.lock":true,
+        "**/.idea":true,
+        "**/macos":true,
+        "**/test":true,
+        "**/web":true
+
+    }
+}
