@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void _navigateToMain() async {
-    await Future.delayed(Duration(seconds: 2)); // Simulasi loading
+    await Future.delayed(Duration(seconds: 1)); // Simulasi loading
     if (mounted) {
       context.router.replace(const LoginRoute()); // Gunakan replace agar tidak bisa back ke splash
     }
