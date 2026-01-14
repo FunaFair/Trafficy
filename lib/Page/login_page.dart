@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:trafficy/Components/login_button.dart';
 import 'package:trafficy/Components/login_text.dart';
+import 'package:trafficy/Source/app_router.gr.dart';
 
 @RoutePage()
 class LoginPage extends StatelessWidget {
@@ -11,6 +12,27 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController usernameController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+
+    void handleLogin() {
+      final username = usernameController.text;
+      final password = passwordController.text;
+
+      if (username.isNotEmpty && password.isNotEmpty) {
+        if(username == 'admin' && password == 'password') {
+          // Navigate to the home page or dashboard
+          context.replaceRoute(MainRoute());
+        } else {
+          // Show error message for invalid credentials
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Invalid username or password')),
+          );
+        }
+      } else {
+        
+      }
+    }
     final horizontalMarginSize = MediaQuery.of(context).size.width * 0.1;
     final verticalMarginSize = MediaQuery.of(context).size.height * 0.20;
     return Scaffold(
@@ -50,9 +72,9 @@ class LoginPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  LoginText(title: "Username"),
-                  LoginText(title: "Password"),
-                  LoginButton(),
+                  LoginText(title: "Username", controller: usernameController),
+                  LoginText(title: "Password", controller: passwordController),
+                  LoginButton(onPressed: handleLogin,),
                 ],
               ),
             ),

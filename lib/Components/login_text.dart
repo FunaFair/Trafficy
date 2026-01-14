@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 
 class LoginText extends StatelessWidget {
-  const LoginText({super.key, required this.title});
+  const LoginText({super.key, required this.title, required this.controller});
   final String title;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(2.5),
       width: MediaQuery.of(context).size.width * 0.8,
-      height: MediaQuery.of(context).size.height * 0.07,
+      height: MediaQuery.of(context).size.height * 0.09,
       padding: EdgeInsets.all(10.0),
     
+    
       child: TextField(
+        controller: controller,
         style: TextStyle(
           color: Colors.white,
         ),
@@ -40,7 +43,7 @@ class LoginText extends StatelessWidget {
           hintText: title == "Username" ? "Enter your username" : "Enter your password",
           enabledBorder: OutlineInputBorder(
             
-            borderSide: const BorderSide(color: Colors.blue, width: 1.5),
+            borderSide: const BorderSide(color: Color.fromARGB(255, 131, 155, 174), width: 1.5),
             borderRadius: BorderRadius.circular(8.0),
           ),
           focusedBorder: OutlineInputBorder(
